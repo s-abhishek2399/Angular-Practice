@@ -1,0 +1,61 @@
+<h1>Books Works</h1>
+<!--difference between interpolation and property binding-->
+<button disabled="{{isdisabled}}">Show Images</button> <!--while using interpolation inside disbaled is false but still it is treating
+as string so in such case property binding is used propertybinding- properties of an attribbute!!-->
+<button [disabled]="isdisabled">Show Images 2</button> <!--it works with property binding -->
+
+<!--interpolation-->
+<img src="{{src}}" alt="{{name}}" width="400px">
+<ul>
+    <li>
+        {{ name }} <!--interpolation is inside double curly brackets-->
+    </li>
+    <li>
+        {{ author }}
+    </li>
+</ul>
+
+<!--property Binding-->
+<img [src]="src" [alt]="name" width="400px"> <!--property binding is inside double square brackets 
+used for , toggle, button functionality and sets path programmatically-->
+
+<!--event Binding-->
+<!--Event binding listens to for and respond for user actions like keystrokes , mouse movemenets or clicks-->
+
+<button (click)="handleClick()" (mouseover)="handleClick()" [disabled]="isdisabled">Show Images 2</button> <!--event handling
+is inside the paranthesis and (click) is "target event name " and "handleClick() is "template statement" 
+there are so many event binding-->
+
+<!--Two way binding-->
+<!--this gives component in ur application the way to share data
+use two binding to listen for events and update values simultaneously between parent and child componenets-->
+<br>
+<!--two way binding between parent and child-->
+
+<!--note !!! in two way bindinig we will use both event binding and property bindnig ie: [()] and in we give as myName
+, it will update and add value simultaneously-->
+<input type="text" [(ngModel)]="myName" /> <!--parameter event is given with $ sign 
+ngModel is very useful we need to import in module.ts or else will give error-->
+
+<div>{{ myName }}</div>
+
+<!--Directives-->
+<!--Directives are classes that add additional behaviour to elements in your Angular applications
+built in directives are there which we can use to manage forms lists style
+component directives
+attributes directives-- Ngclass, NgStyle,NgModel
+structural directives-- Ngif , NgFor, ngSwitch-->
+
+<!--ngIf-->
+<!--we can use ng-container in place of span-->
+
+<button (click)="toggleBooks()">Toggle Books Name</button>
+<ul *ngIf="isShowing"><!--* is used with structural directives-->
+    <li>
+        {{ name }} <!--interpolation is inside double curly brackets-->
+    </li>
+    <li>
+        {{ author }}
+    </li>
+</ul>
+
